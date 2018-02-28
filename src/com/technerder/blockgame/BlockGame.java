@@ -16,7 +16,8 @@ public class BlockGame {
 	private final InputManager inputManager;
 
 	public BlockGame() {
-
+		
+		// The libs ar
 		audioManager = new AudioManager(this);
 		displayManager = new DisplayManager(this);
 		inputManager = new InputManager(this);
