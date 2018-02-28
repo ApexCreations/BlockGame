@@ -2,38 +2,29 @@ package com.technerder.blockgame.objects;
 
 public enum Block {
 
-	STONE("Stone", true, "stone.png"), 
-	GRASS("Grass", true, "grass.png"),
-	DIRT("Dirt" , true, "dirt.png");
-	
-	private final String name;
-	private final boolean isSolid;
-	private final String texture;
+  STONE("Stone", true, "stone.png"),
+  GRASS("Grass", true, "grass.png"),
+  DIRT("Dirt", true, "dirt.png");
 
-	Block(String name, boolean isSoid, String texture) {
+  private final String name;
+  private final boolean isSolid;
+  private final String texture;
 
-		this.name = name;
-		this.isSolid = isSoid;
-		this.texture = texture;
+  Block(String name, boolean isSolid, String texture) {
+    this.name = name;
+    this.isSolid = isSolid;
+    this.texture = texture;
+  }
 
-	}
+  public String getName() {
+    return this.name;
+  }
 
-	public String getName() {
+  public boolean isSolid() {
+    return this.isSolid;
+  }
 
-		return name;
-
-	}
-
-	public boolean isSolid() {
-
-		return isSolid;
-
-	}
-
-	public String getTexture() {
-
-		return texture;
-
-	}
-
+  public String getTexture() {
+    return this.texture;
+  }
 }

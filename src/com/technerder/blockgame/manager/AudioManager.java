@@ -4,12 +4,9 @@ import com.technerder.blockgame.BlockGame;
 
 public class AudioManager {
 
-	public final BlockGame blockGame;
+  public final BlockGame blockGame;
 
-	public AudioManager(BlockGame blockGame) {
-
-		this.blockGame = blockGame;
-
-	}
-
+  public AudioManager(BlockGame blockGame) {
+    this.blockGame = blockGame;
+  }
 }

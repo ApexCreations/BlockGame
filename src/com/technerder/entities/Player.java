@@ -4,31 +4,22 @@ import com.technerder.blockgame.objects.Location;
 
 public class Player {
 
-	private final String name;
-	private Location location;
+  private final String name;
+  private Location location;
 
-	public Player(String name) {
+  public Player(String name) {
+    this.name = name;
+  }
 
-		this.name = name;
+  public void teleport(Location newLocation) {
+    this.location = newLocation;
+  }
 
-	}
+  public String getName() {
+    return this.name;
+  }
 
-	public void teleport(Location newLocation) {
-
-		this.location = newLocation;
-
-	}
-
-	public String getName() {
-
-		return name;
-
-	}
-
-	public Location getLocation() {
-
-		return location;
-
-	}
-
+  public Location getLocation() {
+    return this.location;
+  }
 }

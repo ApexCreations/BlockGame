@@ -1,71 +1,53 @@
 package com.technerder.blockgame;
 
-import java.io.File;
-
-import org.lwjgl.LWJGLException;
-import org.lwjgl.opengl.Display;
-
 import com.technerder.blockgame.manager.AudioManager;
 import com.technerder.blockgame.manager.DisplayManager;
 import com.technerder.blockgame.manager.InputManager;
+import java.io.File;
+import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.Display;
 
 public class BlockGame {
 
-	private final AudioManager audioManager;
-	private final DisplayManager displayManager;
-	private final InputManager inputManager;
+  private final AudioManager audioManager;
+  private final DisplayManager displayManager;
+  private final InputManager inputManager;
 
-	public BlockGame() {
+  public BlockGame() {
+    audioManager = new AudioManager(this);
+    displayManager = new DisplayManager(this);
+    inputManager = new InputManager(this);
 
-		audioManager = new AudioManager(this);
-		displayManager = new DisplayManager(this);
-		inputManager = new InputManager(this);
-		
-		startGame();
+    startGame();
+  }
 
-	}
+  public static void main(String[] args) throws LWJGLException {
+    System.setProperty("org.lwjgl.librarypath", new File("./lib").getAbsolutePath());
+    new BlockGame();
+  }
 
-	public void startGame() {
+  public void startGame() {
+    displayManager.setupDisplay();
+  }
 
-		displayManager.setupDisplay();
-		
-	}
+  public void endGame() {
+    Display.destroy();
+    System.exit(0);
+  }
 
-	public void endGame() {
+  public void startGameLoop() {
 
-		Display.destroy();
-		System.exit(0);
+  }
 
-	}
+  public AudioManager getAudioManager() {
+    return audioManager;
+  }
 
-	public void startGameLoop() {
+  public DisplayManager getDisplayManager() {
+    return displayManager;
+  }
 
-	}
-
-	public AudioManager getAudioManager() {
-
-		return audioManager;
-
-	}
-
-	public DisplayManager getDisplayManager() {
-
-		return displayManager;
-
-	}
-
-	public InputManager getInputManager() {
-
-		return inputManager;
-
-	}
-
-	public static void main(String[] args) throws LWJGLException {
-
-		System.setProperty("org.lwjgl.librarypath", new File("./lib").getAbsolutePath());
-
-		new BlockGame(); 
-		
-	}
-
+  public InputManager getInputManager() {
+    return inputManager;
+  }
 }
